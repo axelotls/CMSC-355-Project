@@ -83,19 +83,15 @@ public class Banker {
                 System.out.println("Search by (1) Last Name or (2) Account Number? (Enter 1 or 2): ");
                 String searchChoice = scanner.nextLine();
                 if ("1".equals(searchChoice)) {
-                    boolean found = false;
-                    while (!found) {
                         System.out.println("Enter the last name: ");
                         String lastName = scanner.nextLine();
                         Customer foundCustomer = banker.searchByLastName(lastName);
                         if (foundCustomer != null) {
                             System.out.println("Customer found: " + foundCustomer.getFirstName() + " " + foundCustomer.getLastName());
-                            found = true; // Customer found, exit the loop
-                        } else {
-                            System.out.println("No customer found with last name: " + lastName + ". Please try again.");
-                            // Loop will continue, asking for last name again
                         }
-                } 
+                        else {
+                            System.out.println("No customer found with last name: " + lastName);
+                        }
             } else if ("2".equals(searchChoice)) {
                     System.out.println("Enter the account number: ");
                     String accountNumber = scanner.nextLine();
